@@ -66,7 +66,7 @@ test('Validate Login with Passcode with combination of alphanumeric', async ({ p
   await assert.equal(incorrectPasscodeAlphaNumric,'Please enter a valid totp','Incorrect Passcode Alphanumeric Error Matched')
 });
 
-test.only('Validate Login', async ({ page }) => {
+test('Validate Login', async ({ page }) => {
   await page.goto(process.env.SEERPORTAL230);
   await page.getByPlaceholder('Email').click();
   await page.getByPlaceholder('Email').fill(process.env.USER);
