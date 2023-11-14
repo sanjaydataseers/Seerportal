@@ -1,17 +1,10 @@
 import { test, expect } from '@playwright/test';
-import * as OTPAuth from "otpauth";
 import assert from 'assert';
+import { LoginPage } from '../Page-Object/LoginPageObjHooks';
 const dotenv = require("dotenv");
 //env config
 dotenv.config();
-
-// Create a new TOTP object.
-let totp = new OTPAuth.TOTP({
-  issuer: "SeerPortal",
-  secret: "MHXILU6HYBGAP2LTJBMRJUJLECYURDWB", // or 'OTPAuth.Secret.fromBase32("MHXILU6HYBGAP2LTJBMRJUJLECYURDWB")'
-});
-//otpauth://totp/SeerPortal?secret=MHXILU6HYBGAP2LTJBMRJUJLECYURDWB&issuer=SeerPortal
-
+const path= require('path');
 
 // declare all characters
 const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -37,35 +30,14 @@ const phoneNumber = generateRandomPhoneNumber();
     return phoneNumber;
   }
 
-
-
-
-// test.describe('Login with Seerporatl',() => {
-//     //before hook
-//     test.beforeEach(async ({ page }) =>{
-//   await page.goto(process.env.SEERPORTAL230);
-// })
-// });
-
 test('Login to Seerportal', async ({ page }) => {
-  await page.goto(process.env.SEERPORTAL230);
-  await page.getByPlaceholder('Email').click();
-  await page.getByPlaceholder('Email').fill(process.env.USER);
-  await page.getByPlaceholder('Email').press('Enter');
-  await page.getByPlaceholder('Password').fill(process.env.PASSWORD);
-  await page.getByPlaceholder('Password').press('Enter');
-  await page.waitForTimeout(1000)
-  
-  let token = totp.generate();
-  await page.getByPlaceholder('Passcode').fill(token);
+  const login = new LoginPage(page)
 
-  await page.getByRole('button', { name: 'Submit' }).click();
+  await login.goto();
+  await login.loginAuth();
   await page.waitForTimeout(1000)
-  await page.click('//span[normalize-space()="Continue as DataSeers."]');
+  //await page.click('//span[normalize-space()="Continue as DataSeers."]');
   await page.waitForTimeout(1000)
-  
-  
-
   await page.click('//span[contains(text(),"Rules & MDM")]');
   await page.waitForTimeout(1000)
   await page.click('//span[contains(text(),"Processor")]');
@@ -75,21 +47,41 @@ test('Login to Seerportal', async ({ page }) => {
   await assert.equal(proConfigTitle,'Config','Processor Config Title Matched')
   await page.waitForTimeout(1000)
   await page.click('//button[@title="Add Processor"]');
-  await page.waitForTimeout(1000)
-//   const addProcessorPage = await page.$eval("//span[normalize-space()='Processor Name']", (element) => element.textContent)
-//   await assert.equal(addProcessorPage,'Processor Name','Add Processor Page')
-//   await page.waitForTimeout(1000)
+  await page.waitForTimeout(1000);
+//   let processorCsvData = await csvTestData.processorInputData();
+//   let batchCsvData =  await batchCsvTestData.batchInputData();
+  
+//   async function inputProcessorDetails(processorCsvData,batchCsvData){
 
-  await page.getByPlaceholder('Processor name').fill(generateString(5));
-  await page.getByPlaceholder('Alert email').fill('syadav@dataseers.in');
+//     //console.log("result=================>",processorCsvData,batchCsvData);
+//     //await processorPage.addProceessorDetails(processorCsvData,batchCsvData)
+//   //}
+
+//   let b=0;
+//   //let r=0;
+// for (let j=0; j < procInfo.length; j++) {
+// let b=j+1;
+// if(j < 1 ){
+
+//   await page.getByPlaceholder('Processor name').fill(procInfo[j].processorName);
+//   await page.getByPlaceholder('Alert email').fill(procInfo[j].alertEmailID);
+//}
+
+
+let relativePath = './upload-download-data/Pradeep.asc';
+const pgpfilePath = path.resolve(relativePath);
+//console.log(pgpfilePath, "PGP Key File Path Is:::::::::::::::::::::::::::::::::::::::::::::::::>");
+  await page.evaluate(function () {
+    document.querySelector("input[type='file']").style.display = "block";            
+  });
+
+  await page.locator('button').filter({ hasText: 'Click to Upload' }).click();
+  await page.setInputFiles(`//input[@type='file']`,pgpfilePath);
   await page.getByPlaceholder('Website').fill('https://test.dataseers.in');
   await page.getByPlaceholder('Phone number').fill(phoneNumber);
   await page.getByPlaceholder('Primary contact name').fill(generateString(10));
   await page.getByPlaceholder('Primary contact phone').fill(phoneNumber);
   await page.getByPlaceholder('Primary contact email').fill('syadav@dataseers.in');
- 
-  await page.waitForTimeout(10000)
-  
   await page.getByRole('button', { name: 'Add Rule' }).click();
   await page.getByLabel('Batch').check();
   await page.locator('div').filter({ hasText: /^Select Frequency$/ }).nth(4).click();

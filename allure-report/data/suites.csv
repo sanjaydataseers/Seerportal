@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Mon Nov 06 17:20:16 IST 2023","Mon Nov 06 17:20:27 IST 2023","10607","chromium","login.spec.js","","","","Validate Login",""
+"passed","Mon Nov 06 17:20:08 IST 2023","Mon Nov 06 17:20:16 IST 2023","8479","chromium","login.spec.js","","","","Invalid Email Login",""
+"passed","Mon Nov 06 17:20:08 IST 2023","Mon Nov 06 17:20:18 IST 2023","10230","chromium","login.spec.js","","","","Valid Email and Blank Password",""
+"passed","Mon Nov 06 17:20:08 IST 2023","Mon Nov 06 17:20:16 IST 2023","8450","chromium","login.spec.js","","","","Invalid Login with Blank Email",""
+"passed","Mon Nov 06 17:20:08 IST 2023","Mon Nov 06 17:20:18 IST 2023","10668","chromium","login.spec.js","","","","Validate Login with Passcode with combination of alphanumeric",""

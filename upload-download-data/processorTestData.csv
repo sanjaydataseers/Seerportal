@@ -1,0 +1,3 @@
+processorName,alertEmailID,website,phoneNum,primaryContactName,primaryContactPhone,primaryContactEmail,,isSequential,addRule,batchrealtime,frequencyIn,freqtimeHour,freqtimeMin,noOfFiles
+AutoMPro,syadav@dataseers.in,https://test.com,736263754,Sanjay Kumar Yadav,736263754,syadav@dataseers.in,,yes,yes,B,Hourly,05,02,5
+,,,,,,,,,yes,R,,05,02,
