@@ -1,0 +1,2 @@
+status,currencyCode,processorName,issuer,programManager,programID,programName,programType,productID,productName,groupID,groupName,loop,binType,bin,binRange,signature,pin,unaffiliated,atmNetworks,acallowedperprogram,reloadable,kyc,kyb,international,cashback,atm,internationalatm,bai2,billpay,ach
+Active,AFA - Afghani,ADA,BRB,Sanjay,101,PROG01,Gift,102,ProdName,103,GROName,Open,Debit,5364,87363,MasterCard,Interac,Maestro,Cirrus,2,no,no,no,yes,yes,yes,yes,yes,yes,yes

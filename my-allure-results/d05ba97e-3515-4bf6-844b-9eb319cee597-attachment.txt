@@ -1,1 +1,0 @@
-sqlQuery ============> select * from seerportal_india_dev.users where email='syadav@dataseers.in';

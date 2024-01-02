@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 //import * as OTPAuth from "otpauth";
 import assert from 'assert';
-import { LoginPage } from '../Page-Object/LoginPageObjHooks';
+import { LoginPage } from '../Page-Object/LoginPageObj';
 //import { Hooks } from '../config/Hooks';
 
 const path= require('path')
@@ -13,22 +13,8 @@ const moment = require('moment');
 const { parse } = require('path');
 const { ConnectionAcquireTimeoutError } = require('sequelize');
 const dotenv = require("dotenv");
-//env config
 dotenv.config();
 
-//const login = new LoginPage(page)
-
-// // Create a new TOTP object.
-// let totp = new OTPAuth.TOTP({
-//   issuer: "SeerPortal",
-//   secret: "MHXILU6HYBGAP2LTJBMRJUJLECYURDWB", // or 'OTPAuth.Secret.fromBase32("MHXILU6HYBGAP2LTJBMRJUJLECYURDWB")'
-// });
-//otpauth://totp/SeerPortal?secret=MHXILU6HYBGAP2LTJBMRJUJLECYURDWB&issuer=SeerPortal
-
-// test.describe('Login Validation TestCases', () => {
-//   test.beforeAll('Login',async ()) => {
-//   test('All Login TestCases',() => {
-// const login = new LoginPage(page)
 
 test('TestCase: 1 Invalid Login with Blank Email', async ({ page }) => {
   const login = new LoginPage(page)
@@ -87,10 +73,8 @@ test('TestCase: 4 Validate Login with Passcode with combination of alphanumeric'
   await assert.equal(incorrectPasscodeAlphaNumric,'Please enter a valid totp','Incorrect Passcode Alphanumeric Error Matched')
 });
 
-test('TestCase: 5 Validate Login', async ({ page }) => {
+test.only('TestCase: 5 Validate Login', async ({ page }) => {
   const login = new LoginPage(page)
-
-
   await login.goto();
   await login.loginAuth();
   await page.waitForTimeout(1000)
@@ -98,17 +82,26 @@ test('TestCase: 5 Validate Login', async ({ page }) => {
 //---------DB DATA-------------
 let sqlQuery = `select * from seerportal_india_dev.users where email='${process.env.USER}';`;
 console.log('sqlQuery ============>', sqlQuery)
-
+//await page.waitForTimeout(9000)
 let dbresultemail = await dbquery(sqlQuery);
 console.log(":::::::::::::::::::DB Result Processsor::::::::",dbresultemail);
+//await page.waitForTimeout(9000)
+//connection.end();
 //let dbprocessorName=dbresultprocessor[0].name;
 //   ---------DB DATA------------
 
-  //await page.screenshot(new page.screenshotOptions().setPath(Paths.get(HomePage.png)))
+await page.screenshot({path: "homePage.png"})
+// await page.screenshot({path: "homepageFullScreenshot.png", fullPage:true})
+
+// await page.locator('[data-testid="open-registration-form-button"]').screenshot({path: "createAccount.png"})
+// const buffer = await page.screenshot();
+// console.log(buffer.toString('base64'))
+  
   const homePageTitle = await page.$eval("span[title='Home Page']", (element) => element.textContent)
   await assert.equal(homePageTitle,'Home Page','Home Page Title Matched')
+  
+  await page.pause();
 
-  // const userTitle = await page.$eval("span[title='Home Page']", (element) => element.textContent)
-  // await assert.equal(homePageTitle,'Home Page','Home Page Title Matched')
+  //connection.end();
 });
 

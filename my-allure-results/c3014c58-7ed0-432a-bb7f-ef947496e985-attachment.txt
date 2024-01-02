@@ -1,0 +1,90 @@
+result=================> [
+  {
+    status: 'Active',
+    currencyCode: 'AFA - Afghani',
+    processorName: 'ADA',
+    issuer: 'BRB',
+    programManager: 'Sanjay',
+    programID: '101',
+    programName: 'PROG01',
+    programType: 'Gift',
+    productID: '102',
+    productName: 'ProdName',
+    groupID: '103',
+    groupName: 'GROName',
+    loop: 'Open',
+    binType: 'Debit',
+    bin: '5364',
+    binRange: '87363',
+    signature: 'MasterCard',
+    pin: 'Interac',
+    unaffiliated: 'Maestro',
+    atmNetworks: 'Cirrus',
+    acallowedperprogram: '2',
+    reloadable: 'no',
+    kyc: 'no',
+    kyb: 'no',
+    international: 'yes',
+    cashback: 'yes',
+    atm: 'yes',
+    internationalatm: 'yes',
+    bai2: 'yes',
+    billpay: 'yes',
+    ach: 'yes'
+  }
+]
+************************** Active
+************************** AFA - Afghani
+************************** ADA
+************************** BRB
+************************** Sanjay
+************************** 101
+************************** PROG01
+************************** Gift
+************************** 102
+************************** ProdName
+************************** 103
+************************** GROName
+************************** Open
+************************** Debit
+************************** 5364
+************************** 87363
+************************** MasterCard
+************************** Interac
+************************** Maestro
+************************** Cirrus
+************************** no
+************************** no
+************************** no
+************************** yes
+************************** yes
+************************** yes
+************************** yes
+************************** yes
+************************** yes
+************************** yes
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT aatest
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT aatest
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT aatest
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT aatest
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT aatest
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT aatest
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT aatest
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT aatest
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT aatest
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT aatest
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT aatest
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT aatest
+PPPPPPPPPPPPPPPPPPPP 10602 prog name 1 (newTest8)
+PPPPPPPPPPPPPPPPPPPP 10602 prog name 1 (newTest7)
+PPPPPPPPPPPPPPPPPPPP 10602 prog name 1 (newTest1234)
+PPPPPPPPPPPPPPPPPPPP 10602 prog name 112 (10602 prog id 12)
+PPPPPPPPPPPPPPPPPPPP 10602 prog name 3 (10602 prog id 2)
+PPPPPPPPPPPPPPPPPPPP 111 (sugdcd)
+PPPPPPPPPPPPPPPPPPPP 232344 (434533)
+PPPPPPPPPPPPPPPPPPPP 232344 (434533gh)
+PPPPPPPPPPPPPPPPPPPP 24 (s232)
+PPPPPPPPPPPPPPPPPPPP aatest (83644)
+PPPPPPPPPPPPPPPPPPPP aatest (7654)
+PPPPPPPPPPPPPPPPPPPP abcde (abcd)
+RANDOM SELECTION 9
